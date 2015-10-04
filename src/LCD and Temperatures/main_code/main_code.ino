@@ -7,7 +7,7 @@ const int switchPin = 6;
 
 //Pin Nymbers
 #define ONE_WIRE_BUS_PIN 7
-int delay_time = 1000;
+
 
 //Library Stuff
 OneWire oneWire(ONE_WIRE_BUS_PIN);
@@ -30,16 +30,28 @@ void setup()
 
 void loop()
 {
-  delay(delay_time);
+  //delay(delay_time);
   sensors.requestTemperatures();  
   
+  delay(2000);
   lcd.begin(16, 2);
-  lcd.print("Temps");
+  lcd.print("Temperatures");
   lcd.setCursor(0, 1);
+  lcd.print("Black = ");
   printTemperature(black);
-  lcd.print(",");
+ 
+  delay(2000);
+  lcd.clear();
+  lcd.print("Temperatures");
+  lcd.setCursor(0, 1);
+  lcd.print("Red = ");
   printTemperature(red);
-  lcd.print(",");
+  
+  delay(2000);
+  lcd.clear();
+  lcd.print("Temperatures");
+  lcd.setCursor(0, 1);
+  lcd.print("Green = ");
   printTemperature(green);
   
   //lcd.print(getTemperature(red));
