@@ -1,9 +1,13 @@
 #include <OneWire.h>
 #include <DallasTemperature.h>
 #include <SoftwareSerial.h>
+#include <LiquidCrystal.h>
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+const int switchPin = 6;
 
 //Pin Nymbers
-#define ONE_WIRE_BUS_PIN 3
+#define ONE_WIRE_BUS_PIN 7
+int delay_time = 200;
 
 //Library Stuff
 OneWire oneWire(ONE_WIRE_BUS_PIN);
@@ -23,19 +27,21 @@ void setup()
   sensors.setResolution(black, 10);
   sensors.setResolution(red, 10);
   sensors.setResolution(green, 10);
+  pinMode(switchPin, INPUT);
 }
 
 void loop()
 {
-  delay(100);
+  delay(delay_time);
   sensors.requestTemperatures();  
  
   printTemperature(black);
   Serial.print(", ");
   printTemperature(red);
   Serial.print(", ");
-  printTemperature(green);
-  Serial.println();  
+  
+  lcd.begin(16, 2);
+  lcd.print(getTemperature(red));
 }
 
 void printTemperature(DeviceAddress deviceAddress)
@@ -45,7 +51,7 @@ float tempC = sensors.getTempC(deviceAddress);
 
    if (tempC == -127.00) 
    {
-   Serial.print("Error getting temperature ");
+   Serial.print("Temperature FAILED ");
    } 
    else
    {
