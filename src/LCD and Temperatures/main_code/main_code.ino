@@ -6,7 +6,7 @@ LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
 const int switchPin = 6;
 
 //Pin Nymbers
-#define ONE_WIRE_BUS_PIN 7
+#define ONE_WIRE_BUS_PIN 6
 
 
 //Library Stuff
@@ -44,7 +44,7 @@ void loop()
   lcd.clear();
   lcd.print("Temperatures");
   lcd.setCursor(0, 1);
-  lcd.print("Red = ");
+  lcd.print("Red   = ");
   printTemperature(red);
   
   delay(2000);
@@ -64,7 +64,7 @@ float tempC = sensors.getTempC(deviceAddress);
 
    if (tempC == -127.00) 
    {
-   lcd.print("Temperature FAILED ");
+   lcd.print("FAILED");
    } 
    else
    {
