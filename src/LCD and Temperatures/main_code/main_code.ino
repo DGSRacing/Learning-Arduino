@@ -37,7 +37,7 @@ void loop()
   lcd.begin(16, 2);
   lcd.print("Temperatures");
   lcd.setCursor(0, 1);
-  lcd.print("Black = ");
+  lcd.print("Black  = ");
   printTemperature(black);
  
   delay(2000);
