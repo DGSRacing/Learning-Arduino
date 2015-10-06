@@ -35,21 +35,21 @@ void loop()
   
   delay(2000);
   lcd.begin(16, 2);
-  lcd.print("Temperatures");
+  lcd.print("DGS Racing");
   lcd.setCursor(0, 1);
-  lcd.print("Black  = ");
+  lcd.print("Black = ");
   printTemperature(black);
  
   delay(2000);
   lcd.clear();
-  lcd.print("Temperatures");
+  lcd.print("DGS Racing");
   lcd.setCursor(0, 1);
   lcd.print("Red   = ");
   printTemperature(red);
   
   delay(2000);
   lcd.clear();
-  lcd.print("Temperatures");
+  lcd.print("DGS Racing");
   lcd.setCursor(0, 1);
   lcd.print("Green = ");
   printTemperature(green);
