@@ -64,7 +64,7 @@ float tempC = sensors.getTempC(deviceAddress);
 
    if (tempC == -127.00) 
    {
-    lcd.print("DEAD");
+    lcd.print("Failed");
    } 
    else
    {
