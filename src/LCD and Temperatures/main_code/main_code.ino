@@ -14,17 +14,17 @@ OneWire oneWire(ONE_WIRE_BUS_PIN);
 DallasTemperature sensors(&oneWire);
 
 //Addresses
-DeviceAddress black = { 0x28, 0xFF, 0x1A, 0xAA, 0x62, 0x15, 0x03, 0x20 }; //Black Address
-DeviceAddress red = { 0x28, 0xFF, 0xA9, 0xB4, 0x62, 0x15, 0x03, 0x0C }; //Red Address
-DeviceAddress green = { 0x28, 0xFF, 0xF5, 0xB3, 0x62, 0x15, 0x03, 0x3E }; //Green Address
+DeviceAddress black_probe = { 0x28, 0xFF, 0x1A, 0xAA, 0x62, 0x15, 0x03, 0x20 }; //Black Address
+DeviceAddress red_probe   = { 0x28, 0xFF, 0xA9, 0xB4, 0x62, 0x15, 0x03, 0x0C }; //Red Address
+DeviceAddress green_probe = { 0x28, 0xFF, 0xF5, 0xB3, 0x62, 0x15, 0x03, 0x3E }; //Green Address
 
 
 void setup()
 {
   sensors.begin();
-  sensors.setResolution(black, 10);
-  sensors.setResolution(red, 10);
-  sensors.setResolution(green, 10);
+  sensors.setResolution(black_probe, 10);
+  sensors.setResolution(red_probe, 10);
+  sensors.setResolution(green_probe, 10);
   pinMode(switchPin, INPUT);
 }
 
@@ -38,21 +38,21 @@ void loop()
   lcd.print("DGS Racing");
   lcd.setCursor(0, 1);
   lcd.print("Black = ");
-  printTemperature(black);
+  printTemperature(black_probe);
  
   delay(2000);
   lcd.clear();
   lcd.print("DGS Racing");
   lcd.setCursor(0, 1);
   lcd.print("Red   = ");
-  printTemperature(red);
+  printTemperature(red_probe);
   
   delay(2000);
   lcd.clear();
   lcd.print("DGS Racing");
   lcd.setCursor(0, 1);
   lcd.print("Green = ");
-  printTemperature(green);
+  printTemperature(green_probe);
   
   //lcd.print(getTemperature(red));
 }
