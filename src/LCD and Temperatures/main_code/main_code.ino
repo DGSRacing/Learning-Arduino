@@ -7,16 +7,14 @@ const int switchPin = 6;
 //Pin Nymbers
 #define ONE_WIRE_BUS_PIN 6
 
-
 //Library Stuff
 OneWire oneWire(ONE_WIRE_BUS_PIN);
 DallasTemperature sensors(&oneWire);
 
-//Addresses
+//Sets the addresses for each probe on the one wire bus
 DeviceAddress black_probe = { 0x28, 0xFF, 0x1A, 0xAA, 0x62, 0x15, 0x03, 0x20 }; //Black Address
 DeviceAddress red_probe   = { 0x28, 0xFF, 0xA9, 0xB4, 0x62, 0x15, 0x03, 0x0C }; //Red Address
 DeviceAddress green_probe = { 0x28, 0xFF, 0xF5, 0xB3, 0x62, 0x15, 0x03, 0x3E }; //Green Address
-
 
 void setup()
 {
@@ -53,7 +51,6 @@ void loop()
   lcd.print("Green = ");
   printTemperature(green_probe);
   
-  //lcd.print(getTemperature(red));
 }
 
 void printTemperature(DeviceAddress deviceAddress)
