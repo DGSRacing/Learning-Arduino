@@ -28,42 +28,43 @@ void setup()
 void loop()
 {
   //delay(delay_time);
-  sensors.requestTemperatures();  
-  
+  sensors.requestTemperatures();
+
   delay(2000);
   lcd.begin(16, 2);
   lcd.print("DGS Racing");
   lcd.setCursor(0, 1);
   lcd.print("Black = ");
   printTemperature(black_probe);
- 
+
   delay(2000);
   lcd.clear();
   lcd.print("DGS Racing");
   lcd.setCursor(0, 1);
   lcd.print("Red   = ");
   printTemperature(red_probe);
-  
+
   delay(2000);
   lcd.clear();
   lcd.print("DGS Racing");
   lcd.setCursor(0, 1);
   lcd.print("Green = ");
   printTemperature(green_probe);
-  
 }
 
 void printTemperature(DeviceAddress deviceAddress)
 {
 
-float tempC = sensors.getTempC(deviceAddress);
+  float tempC = sensors.getTempC(deviceAddress);
 
-   if (tempC == -127.00) 
-   {
+  if (tempC == -127.00)
+  {
     lcd.print("Failed");
-   } 
-   else
-   {
+  }
+  else
+  {
     lcd.print(tempC);
-   }
+  }
 }
+
+
